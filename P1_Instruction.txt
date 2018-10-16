@@ -1,0 +1,42 @@
+                addi $4, $0, 0x2000
+            	addi $5, $0, 0x2004      	
+            	addi $6, $0, 0x2008    
+            	addi $8,$0,20          	    	
+            	add $9,$0,$0    	           
+            	addi $10,$10,32             	
+            	addi $16,$0,0  	           
+next:
+            	lw $12, 0($4)             	  	
+            	lw $13, 0x200c($16)     	
+            	sub $7, $10, 1                 	
+            	add $11,$0,$0                	
+            	add $17, $0, $7              	
+            	xor $18,$12,$13             	
+            	beq $8,$0,exit               	
+                            
+loop:
+            	beq $17,$0, next2        	
+            	subi $17,$17,1                	
+            	add $11,$11,$14            	
+            	andi $14,$18,1            	
+            	j loop 	                            	
+next2:
+            	addi $16,$16,4               	
+            	subi $8,$8,1         	       
+            	sub $11, $10,$11           	
+            	lw $19, 0($5)                   	
+            	bgt $11,$19, score        	
+            	beq $11,$19, bestcount             
+ 
+            	j next                                
+score:
+            	and $9,$9, $0                  	
+            	addi $9,$9,1                    
+            	sw $11, 0($5)                  	
+            	sw $9, 0($6)                    	
+            	j next                                	
+bestcount:
+            	addi $9,$9,1                    	
+            	sw $9, 0($6)                    	
+            	j next                                
+exit: j exit  

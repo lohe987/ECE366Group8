@@ -1,6 +1,6 @@
 #ISA design
 
-def disassembler(I,Nlines):
+def disassembler(M,Nlines):
     print("ECE 366 Group 8 Disassembler")
     print("----------------")
 	#print the instructions
@@ -8,24 +8,25 @@ def disassembler(I,Nlines):
     print(" Nlines in loop: ", Nlines)
     for i in range(Nlines):
         print("in loop")
-        fetch =I[i]
+        fetch =M[i]
         print(fetch)
-        if(fetch[0:3] == "000"):
+        if(fetch[1:4] == "000"):
             #if(fetch[8] =="1") : #load imm
-            Rx = int(fetch[3:4])
-            imm= int(fech[4:7],2)
-            print("loadi R" + str(Rx) +",(R" + str(imm))
+            Rx = int(fetch[4:5])
+           #imm= int(fech[5:8],2)
+            print("loadi R" + str(Rx) )#+",(R" + str(imm))
 	
 	
 #def assembler(I,Nlines):
 #def simulator(I,Nsteps,debug_mode,Memory):
 def main():
-    #instr_file = open("Project21MIPS_horridattempt","r")
+    instr_file = open("P1_Instruction.txt","r")
     data_file = open("P1_Machine.txt" ,"r") #we need a file for the data set
     #Nsteps = 3  #How many cycles to run before output
     #global Nlines
     Nlines = 0   #How may instrs total in input.txt
     Instructions = [] #all instructions will be stored here
+    Memory = []
     print( " ECE 366 Group 8")
 	#print( " 1 = simulator")
     print( " 2 = disassembler")
@@ -43,24 +44,22 @@ def main():
 	    #assemble(Instructions, Nlines)
     
 		
-    #for line in instr_file: # Reading in the instructions
-	#   if (line == "/n" or line[0] == '#'):  #empty lines, comments ignored
-	#	line = line.replace("\n"," ")
-	#	Instructions.append(line)             #Copy all instruction into a list
-	#	Nline+=1
+    for line in instr_file: # Reading in the instructions
+        if (line == "/n" or line[0] == '#'):  #empty lines, comments ignored
+            line = line.replace("\n"," ")
+            Instructions.append(line)             #Copy all instruction into a list
+        #Nline+=1
+		
     for line in data_file: # Read in data memoryview
         if(line== "\n" or line[0] =='#'):
 	        continue
 	        Memory.append(int(line,2))
-        
-        Nlines +=1
-        print("Nlines = ", Nlines)
-
+            Nlines+=1
     if(mode == 1): #Check whether to use disassembler of assembler or simulator
         #simulator(Instructions,Nsteps,debug_mode,Memory)
         print("assembler")
     elif(mode== 2):
-        disassembler(Instructions,Nlines)
+        disassembler(Memory,Nlines)
         print("disassembler is being done")
     elif(mode== 3):
         #assembler(Instructions,Nlines)
