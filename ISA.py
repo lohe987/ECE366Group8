@@ -4,17 +4,23 @@ def disassembler(M,Nlines):
     print("ECE 366 Group 8 Disassembler")
     print("----------------")
 	#print the instructions
-	
+    Rx = 0
+    imm = 0
     print(" Nlines in loop: ", Nlines)
     for i in range(Nlines):
-        print("in loop")
+        #print("in loop")
+        #print("i is: ", i)
         fetch =M[i]
-        print(fetch)
-        if(fetch[1:4] == "000"):
+        print("M[",i,"]:",M[i])
+        #print(fetch)
+        if(fetch[0:3] == "000"):
             #if(fetch[8] =="1") : #load imm
+            print("fetch values for 0:3: ", fetch[0:3])
+            print("fetch values for 4:6: ", fetch[3:5])
             Rx = int(fetch[4:5])
-           #imm= int(fech[5:8],2)
-            print("loadi R" + str(Rx) )#+",(R" + str(imm))
+            imm= int(fetch[5:8],2)
+            #print("loadi R" + str(Rx) )#+",(R" + str(imm))
+            print("Rx: ",Rx)
 	
 	
 #def assembler(I,Nlines):
@@ -44,17 +50,19 @@ def main():
 	    #assemble(Instructions, Nlines)
     
 		
-    for line in instr_file: # Reading in the instructions
-        if (line == "/n" or line[0] == '#'):  #empty lines, comments ignored
-            line = line.replace("\n"," ")
-            Instructions.append(line)             #Copy all instruction into a list
+    #for line in instr_file: # Reading in the instructions
+    #    if (line == "/n" or line[0] == '#'):  #empty lines, comments ignored
+    #       line = line.replace("\n"," ")
+    #        Instructions.append(line)             #Copy all instruction into a list
         #Nline+=1
 		
     for line in data_file: # Read in data memoryview
         if(line== "\n" or line[0] =='#'):
 	        continue
-	        Memory.append(int(line,2))
-            Nlines+=1
+            
+        #Memory.append(int(line,2))
+        Memory.append(line)
+        Nlines+=1
     if(mode == 1): #Check whether to use disassembler of assembler or simulator
         #simulator(Instructions,Nsteps,debug_mode,Memory)
         print("assembler")
