@@ -13,14 +13,17 @@ def disassembler(M,Nlines):
         fetch =M[i]
         print("M[",i,"]:",M[i])
         #print(fetch)
-        if(fetch[0:3] == "000"):
-            #if(fetch[8] =="1") : #load imm
-            print("fetch values for 0:3: ", fetch[0:3])
-            print("fetch values for 4:6: ", fetch[3:5])
-            Rx = int(fetch[4:5])
-            imm= int(fetch[5:8],2)
-            #print("loadi R" + str(Rx) )#+",(R" + str(imm))
+        if(fetch[0:4] == "0000"): # 
+            #print("fetch values for 0:3: ", fetch[0:4])#prints 1st 4 values
+            #print("fetch values for 4:6: ", fetch[4:6])#prints 5th and 6th value
+            Rx = int(fetch[4:6],2) #uses 5th and 6th value and changes it to dec
+            imm= int(fetch[6:8],2)  #uses 7th and 8th value and changes it to dec
+            print("loadi R" + str(Rx) +",(R" + str(imm) + ")")
             print("Rx: ",Rx)
+        elif(fetch[0:4] == "0001"):#
+            print("another intsruction")
+        else:
+            print("Instruction set not supported")
 	
 	
 #def assembler(I,Nlines):
