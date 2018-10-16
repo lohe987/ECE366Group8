@@ -5,15 +5,16 @@ def disassembler(I,Nlines):
     print("----------------")
 	#print the instructions
 	
-
+    print(" Nlines in loop: ", Nlines)
     for i in range(Nlines):
+        print("in loop")
         fetch =I[i]
         print(fetch)
         if(fetch[0:3] == "000"):
-            if(fetch[8] =="1") : #load imm
-                Rx = int(fetch[3:4])
-                imm= int(fech[4:7],2)
-                print("loadi R" + str(Rx) +",(R" + str(imm))
+            #if(fetch[8] =="1") : #load imm
+            Rx = int(fetch[3:4])
+            imm= int(fech[4:7],2)
+            print("loadi R" + str(Rx) +",(R" + str(imm))
 	
 	
 #def assembler(I,Nlines):
@@ -32,17 +33,15 @@ def main():
 	
     mode= int(input( "Please enter the mode of Program: "))
     print( "Mode selected: ",end=" ")
-    if(mode== 1):
-        print("Simulator")
-    elif(mode== 2):
-        print( "disassembler")
-        disassembler(Instructions,Nlines)
-    elif(mode== 3):
-        print( "assembler")
+    #if(mode== 1):
+        #print("Simulator")
+    #elif(mode== 2):
+       # print( "disassembler")
+        #disassembler(Instructions,Nlines)
+    #elif(mode== 3):
+       # print( "assembler")
 	    #assemble(Instructions, Nlines)
-    else:
-        print("Error. Unrecognized mode. Exiting")
-        exit()
+    
 		
     #for line in instr_file: # Reading in the instructions
 	#   if (line == "/n" or line[0] == '#'):  #empty lines, comments ignored
@@ -55,13 +54,20 @@ def main():
 	        Memory.append(int(line,2))
         
         Nlines +=1
+        print("Nlines = ", Nlines)
 
-    #if(mode == 1): #Check whether to use disassembler of assembler or simulator
-      #    simulator(Instructions,Nsteps,debug_mode,Memory)
-    #elif(mode== 2):
-        #disassembler(Instructions,Nlines)
-    #else
-       #assembler(Instructions,Nlines)
+    if(mode == 1): #Check whether to use disassembler of assembler or simulator
+        #simulator(Instructions,Nsteps,debug_mode,Memory)
+        print("assembler")
+    elif(mode== 2):
+        disassembler(Instructions,Nlines)
+        print("disassembler is being done")
+    elif(mode== 3):
+        #assembler(Instructions,Nlines)
+        print("assembler is being done")
+    else:
+        print("Error. Unrecognized mode. Exiting")
+        exit()
 		
 		
     #instr_file.close()
