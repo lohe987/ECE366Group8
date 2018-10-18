@@ -1,4 +1,4 @@
-#ISA design
+#ISA design for AVS
 
 def disassembler(M,Nlines):
     print("ECE 366 Group 8 Disassembler")
@@ -13,7 +13,7 @@ def disassembler(M,Nlines):
         print("Machine code: " + M[i])
         if(fetch[0:4] == "0011"): # load imm
             imm= int(fetch[4:8],2)  
-            print("load "+ str(imm))
+            print("loadi "+ str(imm))
 
         elif(fetch[0:4] == "1000"):#store Rx, Ry 
             Rx= int(fetch[4:6],2)
@@ -81,7 +81,24 @@ def disassembler(M,Nlines):
         elif(fetch[0:8] == "00000000"):#halt 
             Rx= int(fetch[4:6],2)
             Ry= int(fetch[6:8],2)
-            print("halt")    
+            print("halt")
+            
+        elif(fetch[0:6]=="101110"): #load Rx
+            Rx= int(fetch[6:8],2)
+            print("load R" + str(Rx))
+        elif(fetch[0:6]=="110000"):
+            Rx= int(fetch[6:8],2)
+            print("blt4 R" + str(Rx))
+          
+        elif(fetch[0:6] == "000001"):
+            Rx = int(fetch[6:8],2)
+            print("blt4 R" + str(Rx))
+        elif(fetch[0:6] == "111110"):
+            imm= int(fetch[6:8],2)
+            print("and5i R" + str(imm))
+        elif(fetch[0:6] == "101111"):
+            imm=int(fetch[6:8]) 
+            print("srl5 " + str(imm))
             
         else:
             print("Instruction set not supported")
