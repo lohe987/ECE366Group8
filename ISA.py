@@ -7,50 +7,40 @@ def disassembler(M,Nlines):
     Rx = 0
     Ry= 0
     imm = 0
-    #print(" Nlines in loop: ", Nlines)
     for i in range(Nlines):
-        #print("in loop")
-        #print("i is: ", i)
+
         fetch =M[i]
-        #print("M[",i,"]:",M[i])
-        #print(fetch)
+        print("Machine code: " + M[i])
         if(fetch[0:4] == "0011"): # load imm
-        #    Rx = int(fetch[4:6],2) #uses 5th and 6th value and changes it to dec
             imm= int(fetch[4:8],2)  
             print("load "+ str(imm))
 
-        elif(fetch[0:4] == "1000"):#store Rx, Ry Done
+        elif(fetch[0:4] == "1000"):#store Rx, Ry 
             Rx= int(fetch[4:6],2)
             Ry= int(fetch[6:8],2)
             print("store R" + str(Rx)+ ", R" + str(Ry))
             
-        elif(fetch[0:6] == "000100"):#srl Rx Done
+        elif(fetch[0:6] == "000100"):#srl Rx 
             Rx= int(fetch[6:8],2)
-            #Ry= int(fetch[6:8],2)
             print("srl R" + str(Rx))
             
-        elif(fetch[0:4] == "0100"):#addi Rx, imm Done
+        elif(fetch[0:4] == "0100"):#addi Rx, imm 
             Rx= int(fetch[4:6],2)
             imm= int(fetch[6:8],2)
             print("addi R" + str(Rx)+ ", " + str(imm))
             
-        elif(fetch[0:6] == "010110"):#subi Rx Done
-            #Rx= int(fetch[4:6],2)
+        elif(fetch[0:6] == "010110"):#subi Rx 
             Ry= int(fetch[6:8],2)
             print("subi R" + str(Ry))
             
-        elif(fetch[0:6] == "111011"):#bne Rx Done
-            Rx= int(fetch[6:8],2)
-            #Ry= int(fetch[6:8],2)
+        elif(fetch[0:6] == "111011"):#bne Rx 
             print("bne R" + str(Rx))
             
-        elif(fetch[0:6] == "110001"):#slt Rx Done
-            #Rx= int(fetch[4:6],2)
+        elif(fetch[0:6] == "110001"):#slt Rx 
             Rx= int(fetch[6:8],2)
             print("slt R" + str(Rx))
             
         elif(fetch[0:5] == "00100"):#BezDec imm 
-            #Rx= int(fetch[4:6],2)
             imm= int(fetch[5:8],2)
             print("bezDec " + str(imm))
             
@@ -85,12 +75,8 @@ def disassembler(M,Nlines):
             print("subln $R4")
             
         elif(fetch[0:8] == "11110000"):#bne R4
-            #Rx= int(fetch[4:6],2)
-            #Ry= int(fetch[6:8],2)
             print("bne $R4" )   
         elif(fetch[0:8] == "01010101"):# jump ' first branch'
-            #Rx= int(fetch[4:6],2)
-            #Ry= int(fetch[6:8],2)
             print("jump 'first branch' ")
         elif(fetch[0:8] == "00000000"):#halt 
             Rx= int(fetch[4:6],2)
@@ -99,6 +85,7 @@ def disassembler(M,Nlines):
             
         else:
             print("Instruction set not supported")
+        print("----------------")
 	
 	
 #def assembler(I,Nlines):
@@ -107,7 +94,6 @@ def main():
     instr_file = open("P1_Instruction.txt","r")
     data_file = open("P1_Machine.txt" ,"r") #we need a file for the data set
     #Nsteps = 3  #How many cycles to run before output
-    #global Nlines
     Nlines = 0   #How may instrs total in input.txt
     Instructions = [] #all instructions will be stored here
     Memory = []
@@ -134,11 +120,9 @@ def main():
     #        Instructions.append(line)             #Copy all instruction into a list
         #Nline+=1
 		
-    for line in data_file: # Read in data memoryview
+    for line in data_file: # Read in data P1_Machine.txt
         if(line== "\n" or line[0] =='#'):
 	        continue
-            
-        #Memory.append(int(line,2))
         Memory.append(line)
         Nlines+=1
     if(mode == 1): #Check whether to use disassembler of assembler or simulator
@@ -153,7 +137,6 @@ def main():
     else:
         print("Error. Unrecognized mode. Exiting")
         exit()
-		
 		
     #instr_file.close()
     data_file.close()
