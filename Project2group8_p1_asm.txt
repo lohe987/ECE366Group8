@@ -1,0 +1,151 @@
+ ECE 366 Group 8
+ 2 = disassembler
+Please enter the mode of Program: 2
+Mode selected:  Please enter the which program 1 or 2:  1
+Mode selected:  ECE 366 Group 8 Disassembler
+----------------
+Machine code: 01000001
+
+addi R0, 1
+----------------
+Machine code: 01000101
+
+addi R1, 1
+----------------
+Machine code: 00110000
+
+loadi 0
+----------------
+Machine code: 01001011
+
+addi R2, 3
+----------------
+Machine code: 01001010
+
+addi R2, 2
+----------------
+Machine code: 01001111
+
+addi R3, 3
+----------------
+Machine code: 01001111
+
+addi R3, 3
+----------------
+Machine code: 01001111
+
+addi R3, 3
+----------------
+Machine code: 01001111
+
+addi R3, 3
+----------------
+Machine code: 01001111
+
+addi R3, 3
+----------------
+Machine code: 01001110
+
+addi R3, 2
+----------------
+Machine code: 11110000
+
+bne $R4
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 11101110
+
+bne R3
+----------------
+Machine code: 00100100
+
+bezDec 4
+----------------
+Machine code: 10010100
+
+add R1, R0
+----------------
+Machine code: 01011010
+
+subi R2
+----------------
+Machine code: 10101000
+
+jump1,8
+----------------
+Machine code: 11011101
+
+sub R3, R1
+----------------
+Machine code: 11110000
+
+bne $R4
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 11000111
+
+slt R3
+----------------
+Machine code: 10011101
+
+add R3, R1
+----------------
+Machine code: 00100011
+
+bezDec 3
+----------------
+Machine code: 11010111
+
+sub R1, R3
+----------------
+Machine code: 10100111
+
+jump1,7
+----------------
+Machine code: 01001011
+
+addi R2, 3
+----------------
+Machine code: 01001010
+
+addi R2, 2
+----------------
+Machine code: 11110000
+
+bne $R4
+----------------
+Machine code: 00100101
+
+bezDec 5
+----------------
+Machine code: 10110110
+
+subln $R4
+----------------
+Machine code: 11010000
+
+sub R0, R0
+----------------
+Machine code: 00010001
+
+srl R1
+----------------
+Machine code: 01010101
+
+jump 'first branch'
+----------------
+Machine code: 10000100
+
+store R1, R0
+----------------
+Machine code: 00000000
+
+halt
+----------------
+disassembler is being done
