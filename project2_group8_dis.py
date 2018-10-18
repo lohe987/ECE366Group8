@@ -56,8 +56,7 @@ def disassembler(M,Nlines):
             
         elif(fetch[0:4] == "1010"):#jump 'branch'(imm)
             imm= int(fetch[4:8],2)
-            Ry= int(fetch[6:8],2)
-            print("jump" + str(Rx)+ "," + str(imm))
+            print("jump " + str(imm))
             
         elif(fetch[0:4] == "1001"):#add RX, Ry
             Rx= int(fetch[4:6],2)
@@ -70,14 +69,15 @@ def disassembler(M,Nlines):
             print("sub R" + str(Rx)+ ", R" + str(Ry))
             
         elif(fetch[0:8] == "10110110"):#subln R4
-            #Rx= int(fetch[4:6],2)
-            #Ry= int(fetch[6:8],2)
+
             print("subln $R4")
             
         elif(fetch[0:8] == "11110000"):#bne R4
             print("bne $R4" )   
+            
         elif(fetch[0:8] == "01010101"):# jump ' first branch'
             print("jump 'first branch' ")
+            
         elif(fetch[0:8] == "00000000"):#halt 
             Rx= int(fetch[4:6],2)
             Ry= int(fetch[6:8],2)
@@ -86,19 +86,27 @@ def disassembler(M,Nlines):
         elif(fetch[0:6]=="101110"): #load Rx
             Rx= int(fetch[6:8],2)
             print("load R" + str(Rx))
-        elif(fetch[0:6]=="110000"):
+            
+        elif(fetch[0:6]=="000001"): #blt4 Rx
             Rx= int(fetch[6:8],2)
             print("blt4 R" + str(Rx))
           
-        elif(fetch[0:6] == "000001"):
+        elif(fetch[0:6] == "110000"): #beq4 Rx
             Rx = int(fetch[6:8],2)
-            print("blt4 R" + str(Rx))
-        elif(fetch[0:6] == "111110"):
+            print("beq R" + str(Rx))
+            
+        elif(fetch[0:6] == "111110"): #andi5 imm
             imm= int(fetch[6:8],2)
             print("and5i R" + str(imm))
-        elif(fetch[0:6] == "101111"):
+            
+        elif(fetch[0:6] == "101111"): #srl5 imm
             imm=int(fetch[6:8]) 
             print("srl5 " + str(imm))
+         
+        elif(fetch[0:4] == "0110"): #xor Rx, Ry
+            Rx =int(fetch[4:6],2)
+            Ry =int(fetch[6:8],2)
+            print("xor R" + str(Rx) + ",R" + str(Ry))
             
         else:
             print("Instruction set not supported")

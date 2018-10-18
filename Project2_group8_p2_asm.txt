@@ -1,0 +1,258 @@
+ ECE 366 Group 8
+ 2 = disassembler
+Please enter the mode of Program: 2
+Mode selected:  Please enter the which program 1 or 2:  2
+Mode selected:  ECE 366 Group 8 Disassembler
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000011
+
+addi R0, 3
+----------------
+Machine code: 01000010
+
+addi R0, 2
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000111
+
+addi R1, 3
+----------------
+Machine code: 01000110
+
+addi R1, 2
+----------------
+Machine code: 00111100
+
+loadi 12
+----------------
+Machine code: 00110000
+
+loadi 0
+----------------
+Machine code: 10111010
+
+load R2
+----------------
+Machine code: 01011001
+
+subi R1
+----------------
+Machine code: 01101011
+
+xor R2,R3
+----------------
+Machine code: 11010000
+
+sub R0, R0
+----------------
+Machine code: 11101100
+
+bne R0
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 11101101
+
+bne R0
+----------------
+Machine code: 00100101
+
+bezDec 5
+----------------
+Machine code: 01011001
+
+subi R1
+----------------
+Machine code: 01111001
+
+xori R2, R1
+----------------
+Machine code: 10111101
+
+srl5 1
+----------------
+Machine code: 10100101
+
+jump 5
+----------------
+Machine code: 11101100
+
+bne R2
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 00110000
+
+loadi 0
+----------------
+Machine code: 10111011
+
+load R3
+----------------
+Machine code: 01011000
+
+subi R0
+----------------
+Machine code: 00110100
+
+loadi 4
+----------------
+Machine code: 00000101
+
+blt4 R1
+----------------
+Machine code: 11101101
+
+bne R1
+----------------
+Machine code: 11101100
+
+bne R1
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 00100101
+
+bezDec 5
+----------------
+Machine code: 11000001
+
+beq R1
+----------------
+Machine code: 11101101
+
+bne R1
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 11010101
+
+sub R1, R1
+----------------
+Machine code: 11011010
+
+sub R2, R2
+----------------
+Machine code: 11101100
+
+bne R2
+----------------
+Machine code: 00100111
+
+bezDec 7
+----------------
+Machine code: 01000101
+
+addi R1, 1
+----------------
+Machine code: 10000100
+
+store R1, R0
+----------------
+Machine code: 11101101
+
+bne R1
+----------------
+Machine code: 00100011
+
+bezDec 3
+----------------
+Machine code: 10001000
+
+store R2, R0
+----------------
+Machine code: 11010101
+
+sub R1, R1
+----------------
+Machine code: 11011010
+
+sub R2, R2
+----------------
+Machine code: 01000101
+
+addi R1, 1
+----------------
+Machine code: 11101100
+
+bne R1
+----------------
+Machine code: 00100011
+
+bezDec 3
+----------------
+Machine code: 10001000
+
+store R2, R0
+----------------
+Machine code: 11010101
+
+sub R1, R1
+----------------
+Machine code: 00000000
+halt
+----------------
+disassembler is being done
